@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kaurgak-mu-aks-react-km
+  labels:
+    app: kaurgak-mu-aks-react-km
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: kaurgak-mu-aks-react-km
+  template:
+    metadata:
+      labels:
+        app: kaurgak-mu-aks-react-km
+    spec:
+      nodeSelector:
+        'kubernetes.io/os': linux
+      containers:
+        - name: kaurgak-mu-aks-react-km
+          image: kaurgak-mu-aks-react-km:1.0
+          resources:
+            limits:
+              memory: '64Mi'
+              cpu: '100m'
+          ports:
+            - containerPort: 80
+          env:
+            - name: API_URL
+              value: 'http://localhost:4000/api'
