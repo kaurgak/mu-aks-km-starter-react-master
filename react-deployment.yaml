@@ -18,7 +18,7 @@ spec:
         'kubernetes.io/os': linux
       containers:
         - name: kaurgak-mu-aks-react-km
-          image: kaurgak-mu-aks-react-km:1.0
+          image: acrmuakskaurgakdev.azurecr.io/kaurgak-mu-aks-react-km:1.0
           resources:
             limits:
               memory: '64Mi'
@@ -27,4 +27,4 @@ spec:
             - containerPort: 80
           env:
             - name: API_URL
-              value: 'http://localhost:4000/api'
+              value: 'http://10.56.46.30:443/api'
